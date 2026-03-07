@@ -1,0 +1,10 @@
+.rg-about-page {
+	padding-top: 150px;
+	text-align: center;
+	min-height: 80vh;
+}
+
+.rg-about-page__text {
+	margin-top: 2rem;
+	color: var(--color-text-muted);
+}

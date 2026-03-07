@@ -1,0 +1,44 @@
+.rg-benefits {
+	padding: 5rem 0;
+	background-color: #141414;
+}
+
+.rg-benefits__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+}
+
+.rg-benefit-card {
+	padding: 3rem 2rem;
+	text-align: center;
+	transition: transform var(--transition-normal);
+}
+
+.rg-benefit-card:hover {
+	transform: translateY(-5px);
+}
+
+.rg-benefit-card__icon {
+	color: var(--color-secondary);
+	margin-bottom: 1.5rem;
+	display: flex;
+	justify-content: center;
+}
+
+.rg-benefit-card__icon svg {
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+.rg-benefit-card__title {
+	font-size: 1.5rem;
+	color: var(--color-secondary);
+	margin-bottom: 1rem;
+}
+
+.rg-benefit-card__description {
+	color: var(--color-text-muted);
+	font-size: 1rem;
+	line-height: 1.6;
+}

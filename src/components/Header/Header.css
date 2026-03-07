@@ -1,0 +1,133 @@
+.rg-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	padding: 1.5rem 0;
+	transition:
+		padding var(--transition-normal),
+		background-color var(--transition-normal),
+		backdrop-filter var(--transition-normal);
+	animation: rg-header-scroll-effect linear both;
+	animation-timeline: scroll();
+	animation-range: 0 100px;
+}
+
+@keyframes rg-header-scroll-effect {
+	to {
+		padding: 1rem 0;
+		background: rgba(15, 15, 15, 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+}
+
+.rg-header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.rg-header__logo {
+	font-family: var(--font-heading);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-text);
+	letter-spacing: 2px;
+}
+
+.rg-header__logo:hover {
+	color: var(--color-text);
+	opacity: 0.9;
+}
+
+.rg-header__nav {
+	display: flex;
+	align-items: center;
+	gap: 3rem;
+}
+
+.rg-header__menu {
+	display: flex;
+	list-style: none;
+	gap: 2rem;
+	margin: 0;
+	padding: 0;
+}
+
+.rg-header__link {
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: var(--color-text);
+	position: relative;
+	opacity: 0.8;
+	transition:
+		opacity var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.rg-header__link:hover {
+	opacity: 1;
+	color: var(--color-secondary);
+}
+
+.rg-header__link::after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 1px;
+	bottom: -4px;
+	left: 0;
+	background-color: var(--color-secondary);
+	transition: width var(--transition-normal);
+}
+
+.rg-header__link:hover::after {
+	width: 100%;
+}
+
+.rg-header__lang-selector {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.85rem;
+	font-weight: 600;
+	opacity: 0.9;
+}
+
+.rg-header__lang-link {
+	color: var(--color-text);
+	opacity: 0.5;
+	transition:
+		opacity var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.rg-header__lang-link:hover {
+	opacity: 1;
+}
+
+.rg-header__lang-link.active {
+	color: var(--color-secondary);
+	opacity: 1;
+}
+
+.rg-header__lang-divider {
+	color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+	.rg-header {
+		padding: 1rem 0;
+	}
+
+	.rg-header__nav {
+		gap: 1.5rem;
+	}
+
+	.rg-header__menu {
+		display: none;
+	}
+}

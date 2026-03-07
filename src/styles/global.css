@@ -1,0 +1,117 @@
+:root {
+	--color-primary: #5c162e;
+	--color-secondary: #d4af37;
+	--color-accent: #e8dcc4;
+	--color-background: #0f0f0f;
+	--color-surface: rgba(255, 255, 255, 0.05);
+	--color-text: #f9f9f9;
+	--color-text-muted: #a0a0a0;
+
+	--font-base: "Inter", system-ui, -apple-system, sans-serif;
+	--font-heading:
+		"Playfair Display", serif;
+
+	--transition-fast: 0.2s ease-in-out;
+	--transition-normal: 0.3s ease-in-out;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: var(--font-base);
+	background-color: var(--color-background);
+	color: var(--color-text);
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--color-secondary);
+}
+
+.rg-container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+
+.rg-glass-panel {
+	background: var(--color-surface);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+}
+
+.rg-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	font-family: var(--font-base);
+	font-weight: 600;
+	border-radius: 8px;
+	cursor: pointer;
+	transition:
+		background-color var(--transition-fast),
+		color var(--transition-fast),
+		transform var(--transition-fast),
+		box-shadow var(--transition-fast),
+		border-color var(--transition-fast);
+	border: none;
+}
+
+.rg-btn:focus-visible {
+	outline: 2px solid var(--color-secondary);
+	outline-offset: 2px;
+}
+
+.rg-btn--primary {
+	background-color: var(--color-secondary);
+	color: var(--color-background);
+}
+
+.rg-btn--primary:hover {
+	background-color: #f2c744;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+	color: var(--color-background);
+}
+
+.rg-btn--outline {
+	background-color: transparent;
+	color: var(--color-text);
+	border: 1px solid var(--color-text);
+}
+
+.rg-btn--outline:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	transform: translateY(-2px);
+}

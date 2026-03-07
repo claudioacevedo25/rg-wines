@@ -1,0 +1,21 @@
+---
+import "./Hero.css"
+import { useTranslations , getLangFromUrl} from "../../i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="rg-hero">
+  <div class="rg-hero__overlay"></div>
+  <div class="rg-container rg-hero__content">
+    <div class="rg-hero__text-panel rg-glass-panel">
+      <h1 class="rg-hero__title">{t('hero.title')}</h1>
+      <p class="rg-hero__description">{t('hero.description')}</p>
+      <div class="rg-hero__actions">
+        <a href="#catalogo" class="rg-btn rg-btn--primary rg-hero__btn">{t('hero.catalogBtn')}</a>
+        <a href="#contacto" class="rg-btn rg-btn--outline rg-hero__btn">{t('hero.contactBtn')}</a>
+      </div>
+    </div>
+  </div>
+</section>

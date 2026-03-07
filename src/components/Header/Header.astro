@@ -1,0 +1,37 @@
+---
+import { getLangFromUrl, getRelativeLocaleUrl, useTranslations } from "../../i18n/utils"
+import "./Header.css"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const { pathname } = Astro.url
+const pathWithoutLang = pathname.startsWith(`/${lang}`)
+	? pathname.slice(`/${lang}`.length) || "/"
+	: pathname
+
+const esUrl = `/es${pathWithoutLang === "/" ? "" : pathWithoutLang}`
+const enUrl = `/en${pathWithoutLang === "/" ? "" : pathWithoutLang}`
+---
+
+<header class="rg-header" id="main-header">
+  <div class="rg-container rg-header__container">
+    <a href={getRelativeLocaleUrl(lang, '')} class="rg-header__logo">
+      RG WINES
+    </a>
+    
+    <nav class="rg-header__nav">
+      <ul class="rg-header__menu">
+        <li><a href={getRelativeLocaleUrl(lang, '')} class="rg-header__link">{t('nav.home')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, 'catalog')} class="rg-header__link">{t('nav.catalog')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, 'about')} class="rg-header__link">{t('nav.about')}</a></li>
+      </ul>
+      
+      <div class="rg-header__lang-selector">
+        <a href={esUrl} class={`rg-header__lang-link ${lang === 'es' ? 'active' : ''}`}>{t('lang.es')}</a>
+        <span class="rg-header__lang-divider">|</span>
+        <a href={enUrl} class={`rg-header__lang-link ${lang === 'en' ? 'active' : ''}`}>{t('lang.en')}</a>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets"
+import "./Catalog.css"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+
+const wines = [
+	{
+		id: 1,
+		name: t("catalog.wine1.name"),
+		winery: t("catalog.wine1.winery"),
+		description: t("catalog.wine1.desc"),
+		image:
+			"https://images.unsplash.com/photo-1584916201218-f4242ceb4809?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+	},
+	{
+		id: 2,
+		name: t("catalog.wine2.name"),
+		winery: t("catalog.wine2.winery"),
+		description: t("catalog.wine2.desc"),
+		image:
+			"https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+	},
+	{
+		id: 3,
+		name: t("catalog.wine3.name"),
+		winery: t("catalog.wine3.winery"),
+		description: t("catalog.wine3.desc"),
+		image:
+			"https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+	},
+]
+---
+
+<section id="catalogo" class="rg-catalog">
+  <div class="rg-container">
+    <div class="rg-catalog__header">
+      <h2 class="rg-catalog__title">{t('catalog.title')}</h2>
+      <p class="rg-catalog__subtitle">{t('catalog.subtitle')}</p>
+
+      <div class="rg-catalog__divider"></div>
+    </div>
+
+    <div class="rg-catalog__grid">
+      {wines.map((wine) => (
+        <article class="rg-wine-card rg-glass-panel">
+          <div class="rg-wine-card__image-container">
+            <Image class="rg-wine-card__img" src={wine.image} alt={wine.name} width={800} height={1200} />
+          </div>
+          <div class="rg-wine-card__info">
+            <span class="rg-wine-card__winery">{wine.winery}</span>
+            <h3 class="rg-wine-card__name">{wine.name}</h3>
+            <p class="rg-wine-card__desc">{wine.description}</p>
+            <button class="rg-btn rg-btn--outline rg-wine-card__btn">{t('catalog.btn')}</button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

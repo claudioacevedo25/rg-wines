@@ -1,0 +1,20 @@
+---
+import CatalogComponent from "../../components/Catalog/Catalog.astro"
+import { languages } from "../../i18n/ui"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils"
+import Layout from "../../layouts/Layout.astro"
+import "./catalog.css"
+
+export function getStaticPaths() {
+	return Object.keys(languages).map((lang) => ({ params: { lang } }))
+}
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Layout title={`${t('catalog.page_title')} | RG Wines`}>
+	<main class="rg-catalog-page">
+		<CatalogComponent />
+	</main>
+</Layout>

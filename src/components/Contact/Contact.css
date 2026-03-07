@@ -1,0 +1,90 @@
+.rg-contact {
+	position: relative;
+	padding: 8rem 0;
+	background-image: url("https://images.unsplash.com/photo-1543418219-44e30b057fea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+	background-size: cover;
+	background-position: center;
+
+	--whatsapp-color: #25d366;
+	--whatsapp-hover: #20ba5c;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.rg-contact {
+		background-attachment: fixed;
+	}
+}
+
+.rg-contact__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(15, 15, 15, 0.85);
+}
+
+.rg-contact__container {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+}
+
+.rg-contact__card {
+	max-width: 800px;
+	padding: 4rem 3rem;
+	text-align: center;
+	border-top: 4px solid var(--color-primary);
+}
+
+.rg-contact__title {
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+	color: var(--color-text);
+}
+
+.rg-contact__description {
+	font-size: 1.1rem;
+	color: var(--color-text-muted);
+	margin-bottom: 3rem;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rg-contact__actions {
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+}
+
+.rg-contact__icon {
+	margin-right: 0.75rem;
+}
+
+.rg-contact__whatsapp-btn {
+	background-color: var(--whatsapp-color);
+	color: white;
+	border-color: var(--whatsapp-color);
+}
+
+.rg-contact__whatsapp-btn:hover {
+	background-color: var(--whatsapp-hover);
+	box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+@media (max-width: 768px) {
+	.rg-contact__card {
+		padding: 3rem 1.5rem;
+	}
+
+	.rg-contact__title {
+		font-size: 2rem;
+	}
+
+	.rg-contact__actions {
+		flex-direction: column;
+	}
+}
