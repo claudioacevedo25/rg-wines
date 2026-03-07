@@ -1,14 +1,22 @@
 {
-  "name": "rg-wines",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.17.1"
-  }
+	"name": "rg-wines",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "biome format --write .",
+		"lint": "biome check ."
+	},
+	"dependencies": {
+		"@iconify-json/lucide": "1.2.96",
+		"astro": "5.17.1",
+		"astro-icon": "1.1.5",
+		"typescript": "5.9.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.6"
+	}
 }
