@@ -19,6 +19,13 @@ const enUrl = `/en${pathWithoutLang === "/" ? "" : pathWithoutLang}`
     <a href={getRelativeLocaleUrl(lang, '')} class="rg-header__logo">
       RG WINES
     </a>
+
+    <input type="checkbox" id="rg-menu-toggle" class="rg-header__toggle-input" aria-label="Toggle menu" />
+    <label for="rg-menu-toggle" class="rg-header__hamburger">
+      <span class="rg-header__hamburger-line"></span>
+      <span class="rg-header__hamburger-line"></span>
+      <span class="rg-header__hamburger-line"></span>
+    </label>
     
     <nav class="rg-header__nav">
       <ul class="rg-header__menu">
