@@ -1,66 +1,46 @@
 ---
 import { Image } from "astro:assets"
+import { wines } from "../../data/wines"
 import { getLangFromUrl, useTranslations } from "../../i18n/utils"
 import "./Catalog.css"
 
-import wine1 from "/public/rg-main-one.jpeg"
-import wine2 from "/public/rg-main-two.jpeg"
-import wine3 from "/public/rg-main-three.jpeg"
-
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-
-
-
-
-const wines = [
-	{
-		id: 1,
-		name: t("catalog.wine1.name"),
-		winery: t("catalog.wine1.winery"),
-		description: t("catalog.wine1.desc"),
-		image: wine1,
-	},
-	{
-		id: 2,
-		name: t("catalog.wine2.name"),
-		winery: t("catalog.wine2.winery"),
-		description: t("catalog.wine2.desc"),
-		image: wine2,
-	},
-	{
-		id: 3,
-		name: t("catalog.wine3.name"),
-		winery: t("catalog.wine3.winery"),
-		description: t("catalog.wine3.desc"),
-		image: wine3
-	},
-]
 ---
 
-<section id="catalogo" class="rg-catalog">
+<section id="catalogo" class="rg-catalog rg-noise">
   <div class="rg-container">
-    <div class="rg-catalog__header">
+    <header class="rg-catalog__header">
+      <div class="rg-catalog__badge">{t('catalog.badge_label')}</div>
       <h2 class="rg-catalog__title">{t('catalog.title')}</h2>
       <p class="rg-catalog__subtitle">{t('catalog.subtitle')}</p>
-
-      <div class="rg-catalog__divider"></div>
-    </div>
+    </header>
 
     <div class="rg-catalog__grid">
       {wines.map((wine) => (
-        <article class="rg-wine-card rg-glass-panel">
-          <div class="rg-wine-card__image-container">
-            <Image class="rg-wine-card__img" src={wine.image} alt={wine.name} width={800} height={1200} />
+        <article class="rg-wine-item">
+          <div class="rg-wine-item__image">
+            <Image src={wine.image} alt={t(wine.nameKey as any)} width={400} height={600} />
+            <div class="rg-wine-item__badge">{wine.vintage}</div>
           </div>
-          <div class="rg-wine-card__info">
-            <span class="rg-wine-card__winery">{wine.winery}</span>
-            <h3 class="rg-wine-card__name">{wine.name}</h3>
-            <p class="rg-wine-card__desc">{wine.description}</p>
-            <button class="rg-btn rg-btn--outline rg-wine-card__btn">{t('catalog.btn')}</button>
+          <div class="rg-wine-item__info">
+            <span class="rg-wine-item__winery">{t(wine.wineryKey as any)}</span>
+            <h4 class="rg-wine-item__name">{t(wine.nameKey as any)}</h4>
+            <p class="rg-wine-item__region">{wine.region}</p>
+            <button class="rg-wine-item__btn">{t('catalog.detail_btn')}</button>
           </div>
         </article>
       ))}
+    </div>
+    
+    <div class="rg-catalog__pagination">
+      <button class="rg-btn rg-btn--outline" disabled>{t('catalog.prev')}</button>
+      <div class="rg-catalog__pages">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+      </div>
+      <button class="rg-btn rg-btn--outline">{t('catalog.next')}</button>
     </div>
   </div>
 </section>
