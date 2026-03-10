@@ -1,5 +1,9 @@
 ---
-import { getLangFromUrl, getRelativeLocaleUrl, useTranslations } from "../../i18n/utils"
+import {
+	getLangFromUrl,
+	getRelativeLocaleUrl,
+	useTranslations,
+} from "../../i18n/utils"
 import "./Header.css"
 
 const lang = getLangFromUrl(Astro.url)
@@ -20,7 +24,7 @@ const enUrl = `/en${pathWithoutLang === "/" ? "" : pathWithoutLang}`
       RG WINES
     </a>
 
-    <input type="checkbox" id="rg-menu-toggle" class="rg-header__toggle-input" aria-label="Toggle menu" />
+    <input type="checkbox" id="rg-menu-toggle" class="rg-header__toggle-input" aria-label={t('nav.aria_menu')} />
     <label for="rg-menu-toggle" class="rg-header__hamburger">
       <span class="rg-header__hamburger-line"></span>
       <span class="rg-header__hamburger-line"></span>
