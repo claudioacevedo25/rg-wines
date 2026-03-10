@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<Layout title={`${t('catalog.page_title')} | RG Wines`}>
+<Layout title={`${t('catalog.page_title')} | RG Wines`} description={t('site.description')}>
 	<main class="rg-catalog-page">
 		<CatalogComponent />
 	</main>
