@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets"
+import { wines } from "../../data/wines"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils"
+import "./Featured.css"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const featuredWines = wines.filter((w) => w.featured).slice(0, 3)
+---
+
+<section id="seleccion" class="rg-featured rg-noise">
+  <div class="rg-container">
+    <header class="rg-featured__header">
+      <div class="rg-featured__badge">{t('featured.badge')}</div>
+      <h2 class="rg-featured__title">{t('featured.title')}</h2>
+      <p class="rg-featured__subtitle">{t('featured.subtitle')}</p>
+    </header>
+
+    <div class="rg-featured__showcase">
+      {featuredWines.map((wine, index) => (
+        <article class={`rg-featured-card rg-featured-card--${index % 2 === 0 ? 'even' : 'odd'}`}>
+          <div class="rg-featured-card__visual">
+            <div class="rg-featured-card__image-wrapper">
+              <Image 
+                class="rg-featured-card__img" 
+                src={wine.image} 
+                alt={t(wine.nameKey as any)} 
+                width={600} 
+                height={900} 
+                quality="high"
+              />
+              <div class="rg-featured-card__overlay"></div>
+            </div>
+            <div class="rg-featured-card__vintage">{wine.vintage}</div>
+          </div>
+          
+          <div class="rg-featured-card__content">
+            <header class="rg-featured-card__header">
+              <span class="rg-featured-card__region">{wine.region}</span>
+              <span class="rg-featured-card__winery">{t(wine.wineryKey as any)}</span>
+            </header>
+            
+            <h3 class="rg-featured-card__name">{t(wine.nameKey as any)}</h3>
+            <p class="rg-featured-card__desc">{t(wine.descKey as any)}</p>
+            
+            <footer class="rg-featured-card__footer">
+              <button class="rg-btn rg-btn--outline rg-featured-card__btn">
+                <span>{t('catalog.btn')}</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+              </button>
+            </footer>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
