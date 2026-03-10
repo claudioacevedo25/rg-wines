@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import "./Contact.css"
 import { getLangFromUrl, useTranslations } from "../../i18n/utils"
 
@@ -7,27 +8,44 @@ const t = useTranslations(lang)
 
 const whatsappNumber = import.meta.env.SECRET_WHATSAPP_NUMBER
 const email = "info@rgwines.com"
-
 ---
 
 <section id="contacto" class="rg-contact">
-  <div class="rg-contact__overlay"></div>
-  <div class="rg-container rg-contact__container">
-    <div class="rg-contact__card rg-glass-panel">
-      <h2 class="rg-contact__title">{t('contact.title')}</h2>
-      <p class="rg-contact__description">{t('contact.desc')}</p>
-
+  <div class="rg-container">
+    <div class="rg-contact__grid">
       
-      <div class="rg-contact__actions">
-        <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" class="rg-btn rg-btn--primary rg-contact__whatsapp-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rg-contact__icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          {t('contact.btn.whatsapp')}
-        </a>
-        <a href={`mailto:${email}`} class="rg-btn rg-btn--outline rg-contact__email-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rg-contact__icon"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-          {t('contact.btn.email')}
-        </a>
+      <div class="rg-contact__content-side">
+        <header class="rg-contact__header">
+          <span class="rg-contact__badge">{t('contact.badge')}</span>
+          <h2 class="rg-contact__title">{t('contact.title')}</h2>
+          <p class="rg-contact__description">{t('contact.desc')}</p>
+        </header>
+
+        <div class="rg-contact__methods">
+          <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" class="rg-btn rg-btn--primary rg-contact__btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>{t('contact.btn.whatsapp')}</span>
+          </a>
+          <a href={`mailto:${email}`} class="rg-contact__email-link">
+            <span>{t('contact.btn.email')}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
+
+      <div class="rg-contact__visual-side">
+        <div class="rg-contact__image-wrapper">
+          <Image 
+            src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=90" 
+            alt={t('contact.image_alt')} 
+            width={600} 
+            height={800} 
+            class="rg-contact__image"
+          />
+          <div class="rg-contact__visual-accent"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

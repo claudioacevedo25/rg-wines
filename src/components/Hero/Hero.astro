@@ -1,21 +1,42 @@
 ---
+import { Image } from "astro:assets"
 import "./Hero.css"
-import { useTranslations , getLangFromUrl} from "../../i18n/utils"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class="rg-hero">
-  <div class="rg-hero__overlay"></div>
+<section class="rg-hero rg-noise">
+  <div class="rg-hero__bg-container">
+    <div class="rg-hero__overlay"></div>
+  </div>
+  
   <div class="rg-container rg-hero__content">
-    <div class="rg-hero__text-panel rg-glass-panel">
-      <h1 class="rg-hero__title">{t('hero.title')}</h1>
-      <p class="rg-hero__description">{t('hero.description')}</p>
-      <div class="rg-hero__actions">
-        <a href="#catalogo" class="rg-btn rg-btn--primary rg-hero__btn">{t('hero.catalogBtn')}</a>
-        <a href="#contacto" class="rg-btn rg-btn--outline rg-hero__btn">{t('hero.contactBtn')}</a>
+    <div class="rg-hero__editorial-grid">
+      <div class="rg-hero__text-side">
+        <h1 class="rg-hero__title">
+          <span class="rg-hero__title-main rg-text-gradient">{t('hero.title')}</span>
+        </h1>
+        <p class="rg-hero__description">{t('hero.description')}</p>
+
+        <div class="rg-hero__actions">
+          <a href="#catalogo" class="rg-btn rg-btn--primary">{t('hero.catalogBtn')}</a>
+          <a href="#contacto" class="rg-btn rg-btn--outline">{t('hero.contactBtn')}</a>
+        </div>
+      </div>
+      
+      <div class="rg-hero__visual-side">
+        <div class="rg-hero__image-reveal">
+           <div class="rg-hero__decorative-line"></div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="rg-hero__scroll-indicator">
+    <div class="rg-hero__scroll-line"></div>
+    <span class="rg-hero__scroll-text">{t('hero.explore')}</span>
+  </div>
 </section>
+

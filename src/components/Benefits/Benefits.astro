@@ -1,38 +1,40 @@
 ---
 import "./Benefits.css"
-import { getLangFromUrl, useTranslations } from "../../i18n/utils"
 import { Icon } from "astro-icon/components"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class="rg-benefits">
+<section class="rg-benefits rg-noise">
   <div class="rg-container">
     <div class="rg-benefits__grid">
-      <div class="rg-benefit-card rg-glass-panel">
-        <div class="rg-benefit-card__icon">
-          <Icon name="lucide:award" />
+      
+      <div class="rg-benefit-item">
+        <div class="rg-benefit-item__icon-wrapper">
+          <Icon name="lucide:award" class="rg-benefit-item__icon" />
         </div>
-        <h3 class="rg-benefit-card__title">{t('benefits.exclusive.title')}</h3>
-        <p class="rg-benefit-card__description">{t('benefits.exclusive.desc')}</p>
+        <h3 class="rg-benefit-item__title">{t('benefits.exclusive.title')}</h3>
+        <p class="rg-benefit-item__description">{t('benefits.exclusive.desc')}</p>
       </div>
       
-      <div class="rg-benefit-card rg-glass-panel">
-        <div class="rg-benefit-card__icon">
-          <Icon name="lucide:truck" />
+      <div class="rg-benefit-item rg-benefit-item--bordered">
+        <div class="rg-benefit-item__icon-wrapper">
+          <Icon name="lucide:truck" class="rg-benefit-item__icon" />
         </div>
-        <h3 class="rg-benefit-card__title">{t('benefits.shipping.title')}</h3>
-        <p class="rg-benefit-card__description">{t('benefits.shipping.desc')}</p>
+        <h3 class="rg-benefit-item__title">{t('benefits.shipping.title')}</h3>
+        <p class="rg-benefit-item__description">{t('benefits.shipping.desc')}</p>
       </div>
       
-      <div class="rg-benefit-card rg-glass-panel">
-        <div class="rg-benefit-card__icon">
-          <Icon name="lucide:handshake" />
+      <div class="rg-benefit-item rg-benefit-item--bordered">
+        <div class="rg-benefit-item__icon-wrapper">
+          <Icon name="lucide:handshake" class="rg-benefit-item__icon" />
         </div>
-        <h3 class="rg-benefit-card__title">{t('benefits.wholesale.title')}</h3>
-        <p class="rg-benefit-card__description">{t('benefits.wholesale.desc')}</p>
+        <h3 class="rg-benefit-item__title">{t('benefits.wholesale.title')}</h3>
+        <p class="rg-benefit-item__description">{t('benefits.wholesale.desc')}</p>
       </div>
+
     </div>
   </div>
 </section>
