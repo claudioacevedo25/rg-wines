@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components"
+import {
+	getLangFromUrl,
+	getRelativeLocaleUrl,
+	useTranslations,
+} from "../../i18n/utils"
+import "./Footer.css"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const year = new Date().getFullYear()
+
+const copyright = t("footer.copyright").replace("{year}", year.toString())
+---
+
+<footer class="rg-footer rg-noise">
+  <div class="rg-container">
+    <div class="rg-footer__grid">
+      <div class="rg-footer__brand">
+        <a href={getRelativeLocaleUrl(lang, '')} class="rg-footer__logo">
+          RG WINES
+        </a>
+        <p class="rg-footer__tagline">
+          {t('site.description').split('.')[0]}.
+        </p>
+      </div>
+
+      <div class="rg-footer__links-group">
+        <div class="rg-footer__nav">
+          <h4 class="rg-footer__title">{t('footer.explore')}</h4>
+          <ul class="rg-footer__list">
+            <li><a href={getRelativeLocaleUrl(lang, '')} class="rg-footer__link">{t('nav.home')}</a></li>
+            <li><a href={getRelativeLocaleUrl(lang, 'catalog')} class="rg-footer__link">{t('nav.catalog')}</a></li>
+            <li><a href={getRelativeLocaleUrl(lang, 'about')} class="rg-footer__link">{t('nav.about')}</a></li>
+          </ul>
+        </div>
+
+        <div class="rg-footer__social-links">
+          <h4 class="rg-footer__title">{t('footer.social')}</h4>
+          <div class="rg-footer__socials">
+            <a href="https://instagram.com/rgwines" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <Icon name="lucide:instagram" class="rg-footer__social-icon" />
+            </a>
+            <a href="https://facebook.com/rgwines" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <Icon name="lucide:facebook" class="rg-footer__social-icon" />
+            </a>
+          </div>
+          
+          <div class="rg-footer__legal-nav">
+             <h4 class="rg-footer__title rg-footer__title--small">{t('footer.legal')}</h4>
+             <ul class="rg-footer__list rg-footer__list--row">
+                <li><a href="#" class="rg-footer__link">{t('footer.terms')}</a></li>
+                <li><a href="#" class="rg-footer__link">{t('footer.privacy')}</a></li>
+             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rg-footer__bottom">
+      <p class="rg-footer__copyright">{copyright}</p>
+      <p class="rg-footer__moderation">{t('footer.moderation')}</p>
+    </div>
+  </div>
+</footer>

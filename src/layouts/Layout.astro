@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions"
 import Header from "../components/Header/Header.astro"
+import Footer from "../components/Footer/Footer.astro"
 import { getLangFromUrl, useTranslations } from "../i18n/utils"
 import "../styles/global.css"
 
@@ -79,5 +80,6 @@ const jsonLd = {
 	<body>
 		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
