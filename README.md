@@ -1,10 +1,3 @@
-# Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure
 
@@ -30,7 +23,7 @@ To learn more about the folder structure of an Astro project, refer to [our guid
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project, from a terminal: 
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
