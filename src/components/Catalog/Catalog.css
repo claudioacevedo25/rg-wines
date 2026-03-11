@@ -52,15 +52,16 @@
 	grid-template-columns: 1.2fr 1fr;
 }
 
+.rg-wine-card__visual {
+	position: relative;
+}
+
 .rg-wine-card--odd .rg-wine-card__visual {
 	order: 2;
 }
+
 .rg-wine-card--odd .rg-wine-card__content {
 	order: 1;
-}
-
-.rg-wine-card__visual {
-	position: relative;
 }
 
 .rg-wine-card__image-wrapper {

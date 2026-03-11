@@ -7,7 +7,7 @@ export interface Wine {
 	nameKey: string
 	wineryKey: string
 	descKey: string
-	image: any
+	image: ImageMetadata
 	featured: boolean
 	region: string
 	vintage: string

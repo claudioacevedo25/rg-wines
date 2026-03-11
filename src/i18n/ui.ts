@@ -67,7 +67,8 @@ export const ui = {
 		"site.description":
 			"Expertos en distribución de vinos exclusivos y etiquetas boutique para restaurantes, hoteles y vinerías. Catálogo mayorista con asesoramiento de sommeliers.",
 		"footer.copyright": "© {year} RG Wines. Todos los derechos reservados.",
-		"footer.moderation": "Beber con moderación. Prohibida su venta a menores de 18 años.",
+		"footer.moderation":
+			"Beber con moderación. Prohibida su venta a menores de 18 años.",
 		"footer.legal": "Legales",
 		"footer.privacy": "Privacidad",
 		"footer.terms": "Términos",
@@ -135,7 +136,8 @@ export const ui = {
 		"site.description":
 			"Experts in the distribution of exclusive wines and boutique labels for restaurants, hotels, and wine shops. Wholesale catalog with sommelier advisory.",
 		"footer.copyright": "© {year} RG Wines. All rights reserved.",
-		"footer.moderation": "Drink in moderation. Sale prohibited to persons under 18 years of age.",
+		"footer.moderation":
+			"Drink in moderation. Sale prohibited to persons under 18 years of age.",
 		"footer.legal": "Legal",
 		"footer.privacy": "Privacy",
 		"footer.terms": "Terms",

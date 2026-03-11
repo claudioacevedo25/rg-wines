@@ -1,5 +1,6 @@
 {
 	"name": "rg-wines",
+	"private": true,
 	"type": "module",
 	"version": "0.1.0",
 	"scripts": {
@@ -8,15 +9,19 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "biome format --write .",
-		"lint": "biome check ."
+		"lint": "astro check --minimumFailingSeverity warning && biome check . --error-on-warnings --max-diagnostics=100",
+		"lint:fix": "astro check --minimumFailingSeverity warning && biome check --write ."
 	},
 	"dependencies": {
+		"@astrojs/check": "0.9.7",
 		"@iconify-json/lucide": "1.2.96",
 		"astro": "5.17.1",
 		"astro-icon": "1.1.5",
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.6"
+		"@biomejs/biome": "2.4.6",
+		"@semantic-release/changelog": "6.0.3",
+		"@semantic-release/git": "10.0.1"
 	}
 }
